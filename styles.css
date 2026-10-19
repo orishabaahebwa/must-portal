@@ -1,0 +1,132 @@
+:root{
+  --navy:#12105a; --indigo:#3a35b8; --gold:#f2b705; --gold-soft:#ffe38a;
+  --bg:#f4f3fb; --card:#ffffff; --text:#14123a; --muted:#6a6892; --line:#dedcf0; --field:#faf9ff;
+  --shadow:0 20px 50px rgba(30,25,120,.14);
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0c0b24; --card:#16143a; --text:#f1f0ff; --muted:#a3a1cc; --line:#2d2a66; --field:#1d1b48;
+    --shadow:0 20px 50px rgba(0,0,0,.5); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0c0b24; --card:#16143a; --text:#f1f0ff; --muted:#a3a1cc; --line:#2d2a66; --field:#1d1b48;
+  --shadow:0 20px 50px rgba(0,0,0,.5); color-scheme:dark;
+}
+<img class="badge" src="mustbadge.jpeg" alt="Mbarara University of Science and Technology crest" style="object-fit:contain;background:#fff;border-radius:50%;padding:12px;box-sizing:border-box">
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--text);
+  font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5}
+.sr{position:absolute;opacity:0;pointer-events:none}
+
+/* ---------- layout ---------- */
+.shell{display:grid;grid-template-columns:minmax(320px,5fr) 7fr;min-height:100vh}
+
+/* ---------- brand panel ---------- */
+.brand{position:relative;overflow:hidden;color:#fff;padding:48px 44px;display:flex;flex-direction:column;
+  background:
+   radial-gradient(circle at 85% 8%,rgba(242,183,5,.28),transparent 38%),
+   radial-gradient(circle at 0% 100%,rgba(90,84,230,.55),transparent 50%),
+   linear-gradient(165deg,#1b1887,var(--navy) 70%)}
+.brand::after{content:"";position:absolute;inset:auto -80px -80px auto;width:320px;height:320px;border-radius:50%;
+  border:42px solid rgba(242,183,5,.12)}
+.crest{width:76px;height:76px;border-radius:50%;background:#fff;display:grid;place-items:center;
+  box-shadow:0 0 0 6px rgba(255,255,255,.14)}
+.brand h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.7rem,2.6vw,2.4rem);line-height:1.15;margin:26px 0 8px;letter-spacing:-.01em}
+.badge{width:180px;height:180px}
+@media (max-width:900px){.badge{width:96px;height:96px}}
+.brand .tag{display:inline-block;align-self:flex-start;background:var(--gold);color:var(--navy);
+  font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:99px}
+.brand p.lead{color:#d6d4ff;max-width:34ch;margin:18px 0 0}
+.steps{list-style:none;margin:auto 0 0;padding:34px 0 0;position:relative;z-index:1}
+.steps li{display:flex;gap:14px;align-items:flex-start;padding-bottom:22px;position:relative;font-size:.93rem;color:#e6e5ff}
+.steps li:not(:last-child)::before{content:"";position:absolute;left:15px;top:32px;bottom:2px;width:2px;background:rgba(255,255,255,.22)}
+.steps b{display:block;color:#fff;font-size:.98rem}
+.steps i{flex:none;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-style:normal;
+  font-weight:700;font-size:.85rem;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35)}
+.steps li:first-child i{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+
+/* ---------- form panel ---------- */
+.panel{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;
+  background:
+   radial-gradient(circle at 100% 0,rgba(58,53,184,.10),transparent 40%),var(--bg)}
+.card{width:100%;max-width:520px;background:var(--card);border:1px solid var(--line);border-radius:24px;
+  box-shadow:var(--shadow);padding:30px 34px 34px}
+
+.tabs{display:grid;grid-template-columns:1fr 1fr;background:var(--field);border:1px solid var(--line);
+  border-radius:14px;padding:5px;margin-bottom:28px;position:relative}
+.tabs label{text-align:center;padding:10px;border-radius:10px;font-weight:600;font-size:.93rem;cursor:pointer;
+  color:var(--muted);position:relative;z-index:1;transition:color .2s}
+.tabs::before{content:"";position:absolute;top:5px;bottom:5px;left:5px;width:calc(50% - 5px);border-radius:10px;
+  background:linear-gradient(135deg,var(--indigo),var(--navy));transition:transform .28s ease}
+#t-login:checked ~ .shell .tabs label[for="t-login"],
+#t-signup:checked ~ .shell .tabs label[for="t-signup"]{color:#fff}
+#t-signup:checked ~ .shell .tabs::before{transform:translateX(100%)}
+#t-login:focus-visible ~ .shell .tabs label[for="t-login"],
+#t-signup:focus-visible ~ .shell .tabs label[for="t-signup"]{outline:2px solid var(--gold);outline-offset:2px}
+
+.view{display:none;animation:rise .35s ease}
+#t-login:checked ~ .shell .v-login,
+#t-signup:checked ~ .shell .v-signup{display:block}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+h2{font-family:Fraunces,Georgia,serif;font-size:1.65rem;margin:0 0 4px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 24px;font-size:.93rem}
+
+.field{margin-bottom:16px}
+.field label.l{display:block;font-weight:600;font-size:.85rem;margin-bottom:6px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.input{display:flex;align-items:center;gap:10px;background:var(--field);border:1.5px solid var(--line);
+  border-radius:12px;padding:0 14px;transition:border-color .2s,box-shadow .2s}
+.input:focus-within{border-color:var(--indigo);box-shadow:0 0 0 4px rgba(58,53,184,.16)}
+.input svg{flex:none;width:18px;height:18px;stroke:var(--muted);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.input input,.input select{flex:1;min-width:0;border:0;background:transparent;color:var(--text);
+  font:inherit;font-size:.95rem;padding:13px 0;outline:none}
+.input input::placeholder{color:var(--muted);opacity:.7}
+.input select option{color:#14123a}
+
+.meta{display:flex;justify-content:space-between;align-items:center;margin:2px 0 22px;font-size:.88rem;flex-wrap:wrap;gap:8px}
+.meta a{color:var(--indigo);font-weight:600;text-decoration:none}
+:root[data-theme="dark"] .meta a,:root[data-theme="dark"] .alt a{color:var(--gold-soft)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .meta a,:root:not([data-theme="light"]) .alt a{color:var(--gold-soft)}}
+.check{display:flex;gap:8px;align-items:center;color:var(--muted)}
+.check input{accent-color:var(--indigo);width:16px;height:16px}
+
+.btn{width:100%;border:0;border-radius:12px;padding:15px;font:inherit;font-weight:700;font-size:1rem;cursor:pointer;
+  color:#fff;background:linear-gradient(135deg,var(--indigo),var(--navy));
+  box-shadow:0 10px 22px rgba(58,53,184,.32);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 26px rgba(58,53,184,.4)}
+.btn .gold{color:var(--gold)}
+.alt{text-align:center;margin-top:20px;font-size:.9rem;color:var(--muted)}
+.alt a{color:var(--indigo);font-weight:700;text-decoration:none}
+.alt label{color:var(--indigo);font-weight:700;cursor:pointer}
+:root[data-theme="dark"] .alt label{color:var(--gold-soft)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .alt label{color:var(--gold-soft)}}
+
+.divider{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:.8rem;margin:22px 0 16px;
+  text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line)}
+.help{display:flex;align-items:center;justify-content:center;gap:8px;border:1.5px dashed var(--line);
+  border-radius:12px;padding:12px;color:var(--text);text-decoration:none;font-weight:600;font-size:.9rem}
+.help:hover{border-color:var(--gold);background:rgba(242,183,5,.08)}
+
+.strength{display:flex;gap:5px;margin:8px 0 4px}
+.strength span{flex:1;height:5px;border-radius:3px;background:var(--line)}
+.strength span:nth-child(-n+3){background:var(--gold)}
+.hint{font-size:.78rem;color:var(--muted);margin:0}
+.fine{font-size:.78rem;color:var(--muted);text-align:center;margin-top:22px}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .brand{padding:30px 24px 26px}
+  .steps,.brand p.lead{display:none}
+  .brand h1{margin-top:16px}
+  .panel{padding:24px 14px 40px}
+  .card{padding:24px 20px 28px}
+}
+@media (max-width:480px){.row{grid-template-columns:1fr;gap:0}}

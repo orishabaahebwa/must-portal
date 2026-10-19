@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MUST Online Application Portal</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<input class="sr" type="radio" name="tab" id="t-login" checked aria-label="Login">
+<input class="sr" type="radio" name="tab" id="t-signup" aria-label="Create account">
+
+<div class="shell">
+
+  <!-- Brand side -->
+  <aside class="brand">
+        <div>
+      <img src="mustbadge.jpeg" alt="Mbarara University of Science and Technology crest" style="width:180px;height:180px;object-fit:contain;background:#fff;border-radius:50%;padding:12px;box-sizing:border-box">
+      <h1 style="font:700 30px/1.15 Fraunces,Georgia,serif;letter-spacing:.02em;text-transform:uppercase;margin:22px 0 14px">Mbarara University<br>of Science and Technology</h1>
+    </div>
+    <span class="tag">Online Application Portal</span>
+    <p class="lead">Your journey into science, medicine,ICT and innovation begins here. Apply in minutes, track every step.</p>
+
+    <ol class="steps">
+      <li><i>1</i><span><b>Create your account</b>Use an email you check often.</span></li>
+      <li><i>2</i><span><b>Complete your application</b>Bio-data, programme choices and documents.</span></li>
+      <li><i>3</i><span><b>Pay &amp; submit</b>Confirm your fees and send it in.</span></li>
+      <li><i>4</i><span><b>Track your status</b>Get updates right on your dashboard.</span></li>
+    </ol>
+  </aside>
+
+  <!-- Form side -->
+  <main class="panel">
+    <div class="card">
+
+      <div class="tabs" role="tablist">
+        <label for="t-login">Sign In</label>
+        <label for="t-signup">Create Account</label>
+      </div>
+
+      <!-- LOGIN -->
+      <section class="view v-login">
+        <h2>Welcome back</h2>
+        <p class="sub">Log in to access your application dashboard.</p>
+
+        <div class="field">
+          <label class="l" for="le">Email address</label>
+          <div class="input">
+            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <input id="le" type="email" placeholder="name@example.com" autocomplete="email">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="l" for="lp">Password</label>
+          <div class="input">
+            <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+            <input id="lp" type="password" placeholder="Enter your password" autocomplete="current-password">
+          </div>
+        </div>
+
+        <div class="meta">
+          <label class="check"><input type="checkbox"> Keep me signed in</label>
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <button class="btn" type="button">Sign In <span class="gold">&rarr;</span></button>
+
+        <div class="divider">New to the portal?</div>
+        <a class="help" href="#">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17h.01"/></svg>
+          How to apply
+        </a>
+        <p class="alt">Don’t have an account? <label for="t-signup">Create one</label></p>
+      </section>
+
+      <!-- SIGN UP -->
+      <section class="view v-signup">
+        <h2>Start your application</h2>
+        <p class="sub">Create an account. It takes less than two minutes.</p>
+
+        <div class="row">
+          <div class="field">
+            <label class="l" for="fn">First name</label>
+            <div class="input">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1-4 4-6 8-6s7 2 8 6"/></svg>
+              <input id="fn" type="text" placeholder="Jane" autocomplete="given-name">
+            </div>
+          </div>
+          <div class="field">
+            <label class="l" for="ln">Surname</label>
+            <div class="input">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1-4 4-6 8-6s7 2 8 6"/></svg>
+              <input id="ln" type="text" placeholder="Doe" autocomplete="family-name">
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="l" for="se">Email address</label>
+          <div class="input">
+            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <input id="se" type="email" placeholder="name@example.com" autocomplete="email">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label class="l" for="ph">Phone</label>
+            <div class="input">
+              <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+              <input id="ph" type="tel" placeholder="+256 7XX XXX XXX" autocomplete="tel">
+            </div>
+          </div>
+          <div class="field">
+            <label class="l" for="lv">Applying for</label>
+            <div class="input">
+              <svg viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.500 6-3v-5"/></svg>
+              <select id="lv">
+                <option>Undergraduate</option>
+                <option>Postgraduate</option>
+                <option>Diploma / Certificate</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="l" for="sp">Password</label>
+          <div class="input">
+            <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+            <input id="sp" type="password" placeholder="Create a password" autocomplete="new-password">
+          </div>
+          <div class="strength" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+          <p class="hint">Use 8+ characters with a number and a symbol.</p>
+        </div>
+
+        <div class="field">
+          <label class="l" for="cp">Confirm password</label>
+          <div class="input">
+            <svg viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg>
+            <input id="cp" type="password" placeholder="Repeat your password" autocomplete="new-password">
+          </div>
+        </div>
+
+        <label class="check" style="margin:4px 0 20px;font-size:.85rem">
+          <input type="checkbox"> I confirm the details I provide are accurate and agree to the portal terms.
+        </label>
+
+        <button class="btn" type="button">Create Account <span class="gold">&rarr;</span></button>
+        <p class="alt">Already registered? <label for="t-login">Sign in</label></p>
+      </section>
+
+    </div>
+    <p class="fine">&copy; 2026 Mbarara University of Science and Technology</p>
+  </main>
+</div>
+</body>
+</html>
